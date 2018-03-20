@@ -72,6 +72,7 @@ INCLUDE_DIRECTORIES(include ${EIGEN3_INCLUDE_DIR}
                             ${PCL_INCLUDE_DIRS}
                             ${XBotInterface_INCLUDE_DIRS}
                             ${srdfdom_advr_INCLUDE_DIRS}
+                            ${eigen_conversions_INCLUDE_DIRS}
                             )
 
 ADD_DEFINITIONS(${PCL_DEFINITIONS})
