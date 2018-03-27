@@ -63,6 +63,10 @@ FIND_PACKAGE(eigen_conversions REQUIRED)
 FIND_PACKAGE(XBotInterface REQUIRED)
 FIND_PACKAGE(fcl QUIET)
 
+find_package(PkgConfig)
+pkg_check_modules(YAML_CPP yaml-cpp=0.5.1)
+message(STATUS "YAML_CPP Version: ${YAML_CPP_VERSION}")
+
 # compilation flags
 option(OPENSOT_COMPILE_EXAMPLES "Compile OpenSoT examples" TRUE)
 option(OPENSOT_COMPILE_TESTS "Compile OpenSoT tests" FALSE)
@@ -73,6 +77,7 @@ INCLUDE_DIRECTORIES(include ${EIGEN3_INCLUDE_DIR}
                             ${XBotInterface_INCLUDE_DIRS}
                             ${srdfdom_advr_INCLUDE_DIRS}
                             ${eigen_conversions_INCLUDE_DIRS}
+                            ${YAML_CPP_INCLUDE_DIRS}
                             )
 
 ADD_DEFINITIONS(${PCL_DEFINITIONS})
@@ -210,6 +215,7 @@ TARGET_LINK_LIBRARIES(OpenSoT PUBLIC
                               ${XBotInterface_LIBRARIES}
                               ${fcl_LIBRARIES}
                               ${moveit_core_LIBRARIES}
+                              ${YAML_CPP_LIBRARIES}
                               )
 
 ########################################################################
